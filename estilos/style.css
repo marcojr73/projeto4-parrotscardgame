@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+/* texto da pagina */
+
+header{
+    position: absolute;
+    width: 550px;
+    height: 63px;
+    /* background-color: red; */
+    left: 0;
+    right: 0;
+    top: 40px;
+    margin: auto;
+}
+
+h1{ 
+    font-family: Roboto;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+}
+
+/* seção das cartas */
+section{
+    /* background-color: red; */
+    width: 70vw;
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 250px;
+}
+.card{
+    width: 117px;
+    height: 146px;
+    background: #A7E9AF;
+    height: 146px;
+    width: 117px;
+    border-radius: 5px;
+    margin: 0px 34px;
+
+}
