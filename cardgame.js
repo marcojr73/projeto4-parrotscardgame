@@ -1,4 +1,6 @@
 numeroCartas = null;
+
+// validar se o numero de cartas digitado é valido
 escolherNumeroCartas();
 function escolherNumeroCartas(){
 
@@ -8,5 +10,11 @@ function escolherNumeroCartas(){
     } else{
         alert("sett");
     }
+    
+}
+
+// inserir as cartas no html pelo javascript
+
+function inserirCartas (){
     
 }
