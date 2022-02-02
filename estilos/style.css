@@ -37,6 +37,7 @@ section{
     margin-top: 250px;
 }
 .card{
+    position: relative;
     width: 117px;
     height: 146px;
     background: #A7E9AF;
@@ -44,5 +45,14 @@ section{
     width: 117px;
     border-radius: 5px;
     margin: 0px 34px;
-
+}
+.parrot{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    
 }
