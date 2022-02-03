@@ -1,17 +1,16 @@
 numeroCartas = null;
 let game = document.querySelector(".game");
-let cards = [
+let gifs = [
     "bobrossparrot.gif",
-    "desktop.png",
     "explodyparrot.gif",
     "fistaparrot.gif",
     "front.png",
     "metalparrot.png",
-    "mobile.png",
     "revertparrot.gif",
     "triplesparrot.gif",
     "unicornparrot.gif"
 ]
+
 // validar se o numero de cartas digitado é valido
 escolherNumeroCartas();
 function escolherNumeroCartas(){
@@ -29,13 +28,20 @@ function escolherNumeroCartas(){
 
 function inserirCartas (){
     for(let i = 0; i < numeroCartas; i++){
-        game.innerHTML += "<div class='card' onclick = 'inserirGif()'></div>"
+        for(let j = 0; j < ((numeroCartas)/2) ; j++){
+        game.innerHTML += `
+        <div class='card flip'>
+            <div class='front' onclick = 'inserirGif()'></div>
+            <div class='back'><img src='./assets/${gifs[i]}'></div>
+        </div>`;
+        }
     }
 }
 
 function inserirGif(){
-    card = document.querySelector"card");
-    for(let i = 0; i<numeroCartas; i++){
-        card.innerHTML += `<img src = './assets/${cards[0]}'  class ='parrot'></img> `
-    }
+    let back = document.querySelectorAll(".card");
+    back[0].classList.toggle("flip");
+//     card = document.querySelectorAll(".back");
+//     posicao.innerHTML = `<div class='back hidden'><img src='./assets/${gifs[0]}'></div>
+//     </div>`;
 }
