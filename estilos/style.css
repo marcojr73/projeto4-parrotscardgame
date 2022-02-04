@@ -28,6 +28,7 @@ section{
     width: 70vw;
     height: 50vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: auto;
