@@ -15,7 +15,8 @@ let gifs = [
 let firstChoice = null;
 let secondChoice = null;
 let round = 0;
-
+let cardOne;
+let cardTwo;
 // funcao que embaralha arrays
 function comparador() { 
     return Math.random() - 0.5; 
@@ -44,7 +45,6 @@ function embaralhar(){
         gifsAround.push(gifsAround[j]);
     }
     gifsAround.sort(comparador);
-    // console.log(gifsAround);
     inserirCartas();
 }
 
@@ -62,7 +62,7 @@ function inserirCartas (){
 //funçao que chama outras funcoes e repassa a div da frontal da carta como parametro
 function funcaoGarcon(card, gif){
     flipCard(card);
-    selectCards(gif);
+    selectCards(gif, card);
 }
 
 // virar as cartas
@@ -71,23 +71,25 @@ function flipCard(front){
     back.classList.remove("flip");
 }
 // nao virar as cartas
-function noFlipCard(card){
-    let back = card.parentNode;
-    back.classList.add("flip");
+function noFlipCard(){
+    cardOne.parentNode.classList.add("flip");   
+    cardTwo.parentNode.classList.add("flip");
 }
 
 // fazer o uso das regras do game
 
 // preencher as escolhas de cartas
-function selectCards(gif) {
+function selectCards(gif, card) {
    if(firstChoice == null){
        firstChoice = gif;
        console.log("1");
        round++;
+       cardOne = card;
    }else{
        secondChoice = gif;
        console.log("2");
        round++;
+       cardTwo = card;
    }
    findPair();
 }
@@ -96,12 +98,11 @@ function selectCards(gif) {
 function findPair(){
     if(round%2 == 0){
         if(firstChoice !== secondChoice){
-            alert("you lose" + round);
             firstChoice = null;
+            setTimeout(noFlipCard,1000);
         }else{
             firstChoice = null;
             secondChoice = null;
-            alert("you win" + round);
         }
     }
 }
