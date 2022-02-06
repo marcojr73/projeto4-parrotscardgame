@@ -21,7 +21,6 @@ let winner = 0;
 let seconds = -1;
 
 // relógio
-
 setInterval(atualizarTimer,1000)
 function atualizarTimer(){
     seconds++;
@@ -36,7 +35,6 @@ function comparador() {
 // validar se o numero de cartas digitado é valido
 escolherNumeroCartas(); 
 function escolherNumeroCartas(){
-
     numeroCartas = prompt("com quantas cartas você deseja jogar?");
     if ( numeroCartas <4 || numeroCartas > 14 || (numeroCartas%2) !== 0){
         escolherNumeroCartas(); 
@@ -63,9 +61,9 @@ function embaralhar(){
 function inserirCartas (){
     for(let i = 0; i < numeroCartas; i++){
         game.innerHTML += `
-        <div class='card flip'>
-            <div class='front' onclick = 'funcaoGarcon(this, gifsAround[${[i]}])'></div>
-            <div class='back'><img src='./assets/${gifsAround[i]}'></div>
+        <div class='card flip' data-identifier="card">
+            <div class='front' onclick = 'funcaoGarcon(this, gifsAround[${[i]}])' identifier="front-face"></div>
+            <div class='back' data-identifier="back-face"><img src='./assets/${gifsAround[i]}'></div>
         </div>`;
     }
 }

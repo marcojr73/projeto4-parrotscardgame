@@ -31,7 +31,7 @@ p{
 }
 
 /* seção das cartas */
-section{
+main{
     width: 70vw;
     height: 50vh;
     display: flex;
