@@ -17,6 +17,17 @@ let secondChoice = null;
 let round = 0;
 let cardOne;
 let cardTwo;
+let winner = 0;
+let seconds = -1;
+
+// relógio
+
+setInterval(atualizarTimer,1000)
+function atualizarTimer(){
+    seconds++;
+    document.querySelector("p").innerHTML = seconds;
+}
+
 // funcao que embaralha arrays
 function comparador() { 
     return Math.random() - 0.5; 
@@ -70,24 +81,22 @@ function flipCard(front){
     let back = front.parentNode;
     back.classList.remove("flip");
 }
-// nao virar as cartas
+// esconder as cartas
 function noFlipCard(){
     cardOne.parentNode.classList.add("flip");   
     cardTwo.parentNode.classList.add("flip");
 }
 
-// fazer o uso das regras do game
+// ---------------------------  fazer o uso das regras do game ---------------------------//
 
 // preencher as escolhas de cartas
 function selectCards(gif, card) {
    if(firstChoice == null){
        firstChoice = gif;
-       console.log("1");
        round++;
        cardOne = card;
    }else{
        secondChoice = gif;
-       console.log("2");
        round++;
        cardTwo = card;
    }
@@ -103,6 +112,20 @@ function findPair(){
         }else{
             firstChoice = null;
             secondChoice = null;
+            winner++;
+            setTimeout(findWinner, 1000)
+        }
+    }
+}
+
+//verificar se o usuário encontrou todos os pares
+function findWinner(){
+    if(winner == (numeroCartas/2)){
+        alert(`Parabens, voce venceu em ${seconds} segundos`);
+        let playAgain = prompt("deseja reiniciar o jogo?");{
+            if(playAgain == "sim"){
+                alert("aperta f5 hahahah");
+            }
         }
     }
 }
