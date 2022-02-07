@@ -60,7 +60,7 @@ main{
     background-image: url("../assets/front.png");
     background-size:contain;
     background-repeat: no-repeat;
-    colcoa backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .back{
     position: absolute;
@@ -69,7 +69,7 @@ main{
     align-items: center;
     width: 100%;
     height: 100%;
-    colcoa backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .flip{
     transform: rotateY(180deg);
