@@ -118,7 +118,7 @@ function findPair(){
 function findWinner(){
     if(winner == (numberCards/2)){
         alert(`Parabens, voce venceu em ${seconds} segundos`);
-        let playAgain = prompt("deseja reiniciar o jogo?");{
+        let playAgain = prompt('deseja reiniciar o jogo?(digite "sim" para continuar');{
             if(playAgain == "sim"){
                 firstChoice = null;
                 secondChoice = null;
