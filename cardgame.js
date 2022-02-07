@@ -61,8 +61,8 @@ function embaralhar(){
 function insertCards (){
     for(let i = 0; i < numberCards; i++){
         game.innerHTML += `
-        <div class='card flip' data-identifier="card">
-            <div class='front' onclick = 'funcaoWaiter(this, gifsAround[${[i]}])' identifier="front-face"></div>
+        <div class='card flip' onclick = 'funcaoWaiter(this, gifsAround[${[i]}])' data-identifier="card">
+            <div class='front' identifier="front-face"></div>
             <div class='back' data-identifier="back-face"><img src='./assets/${gifsAround[i]}'></div>
         </div>`;
     }
@@ -76,13 +76,12 @@ function funcaoWaiter(card, gif){
 
 // virar as cartas
 function flipCard(front){
-    let back = front.parentNode;
-    back.classList.remove("flip");
+    front.classList.remove("flip");
 }
 // esconder as cartas
 function noFlipCard(){
-    cardOne.parentNode.classList.add("flip");   
-    cardTwo.parentNode.classList.add("flip");
+    cardOne.classList.add("flip");   
+    cardTwo.classList.add("flip");
 }
 
 // ---------------------------  fazer o uso das regras do game ---------------------------//
