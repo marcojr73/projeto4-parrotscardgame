@@ -6,7 +6,6 @@ let gifs = [
     "bobrossparrot.gif",
     "explodyparrot.gif",
     "fiestaparrot.gif",
-    "front.png",
     "metalparrot.gif",
     "revertitparrot.gif",
     "tripletsparrot.gif",
