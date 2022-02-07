@@ -1,5 +1,5 @@
 // variáveis globais
-numeroCartas = null;
+numberCards = null;
 let game = document.querySelector(".game");
 let gifsAround = [];
 let gifs = [
@@ -21,10 +21,10 @@ let winner = 0;
 let seconds = -1;
 
 // relógio
-setInterval(atualizarTimer,1000)
-function atualizarTimer(){
+setInterval(attTimer,1000)
+function attTimer(){
     seconds++;
-    document.querySelector("p").innerHTML = seconds;
+    document.querySelector("p").innerHTML = seconds + " segundos";
 }
 
 // funcao que embaralha arrays
@@ -33,43 +33,43 @@ function comparador() {
 }
 
 // validar se o numero de cartas digitado é valido
-escolherNumeroCartas(); 
-function escolherNumeroCartas(){
-    numeroCartas = prompt("com quantas cartas você deseja jogar?");
-    if ( numeroCartas <4 || numeroCartas > 14 || (numeroCartas%2) !== 0){
-        escolherNumeroCartas(); 
+chooseCards(); 
+function chooseCards(){
+    numberCards = prompt("com quantas cartas você deseja jogar?");
+    if ( numberCards <4 || numberCards > 14 || (numberCards%2) !== 0){
+        chooseCards(); 
     } else{
         embaralhar();
     }
-    return parseInt(numeroCartas);
+    return parseInt(numberCards);
 }
 
 // embaralhar
 function embaralhar(){
     gifs.sort(comparador);    
-    for(let i = 0; i < (numeroCartas/2); i++){
+    for(let i = 0; i < (numberCards/2); i++){
         gifsAround.push(gifs[i])
     }
-    for(let j = 0; j < (numeroCartas/2); j++){
+    for(let j = 0; j < (numberCards/2); j++){
         gifsAround.push(gifsAround[j]);
     }
     gifsAround.sort(comparador);
-    inserirCartas();
+    insertCards();
 }
 
 // inserir as cartas no html pelo javascript
-function inserirCartas (){
-    for(let i = 0; i < numeroCartas; i++){
+function insertCards (){
+    for(let i = 0; i < numberCards; i++){
         game.innerHTML += `
         <div class='card flip' data-identifier="card">
-            <div class='front' onclick = 'funcaoGarcon(this, gifsAround[${[i]}])' identifier="front-face"></div>
+            <div class='front' onclick = 'funcaoWaiter(this, gifsAround[${[i]}])' identifier="front-face"></div>
             <div class='back' data-identifier="back-face"><img src='./assets/${gifsAround[i]}'></div>
         </div>`;
     }
 }
 
 //funçao que chama outras funcoes e repassa a div da frontal da carta como parametro
-function funcaoGarcon(card, gif){
+function funcaoWaiter(card, gif){
     flipCard(card);
     selectCards(gif, card);
 }
@@ -118,11 +118,18 @@ function findPair(){
 
 //verificar se o usuário encontrou todos os pares
 function findWinner(){
-    if(winner == (numeroCartas/2)){
+    if(winner == (numberCards/2)){
         alert(`Parabens, voce venceu em ${seconds} segundos`);
         let playAgain = prompt("deseja reiniciar o jogo?");{
             if(playAgain == "sim"){
-                alert("aperta f5 hahahah");
+                firstChoice = null;
+                secondChoice = null;
+                round = 0;
+                winner = 0;
+                seconds = -1;
+                game.innerHTML="";
+                gifsAround=[];
+                chooseCards();
             }
         }
     }
