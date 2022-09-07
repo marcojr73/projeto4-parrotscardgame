@@ -16,7 +16,7 @@
 # Demonstração
 
 <p align="center">
-   <img width=500 src="./assets/App.gif"/>
+   <img width=700 src="./assets/App.gif"/>
 </p>
 
 ## Como usar
