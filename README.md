@@ -13,6 +13,12 @@
 
 ***
 
+# Demonstração
+
+<p align="center">
+   <img width=500 src="./assets/App.gif"/>
+</p>
+
 ## Como usar
 
 Instale meu projeto e abra-o no navegador
